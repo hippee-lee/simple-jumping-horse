@@ -1,0 +1,22 @@
+.arena {
+    border: 25px double darkgoldenrod;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: lightgoldenrodyellow;
+    width: 500px;
+    min-height: 200px;
+    margin: 25px;
+    cursor: pointer;
+}
+
+.fence {
+    width: 5px;
+    height: 150px;
+    background-color: purple;
+}
+
+.arena-box {
+    width: 100px;
+    height: 50px;
+}
