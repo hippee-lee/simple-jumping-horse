@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactory, ComponentFactoryResolver, ElementRef, OnInit, ViewContainerRef} from '@angular/core';
+import {JumpingHorseWrapperComponent} from '../jumping-horse-wrapper/jumping-horse-wrapper.component';
 let herdSize = 0;
+
+@Component({
+  selector: 'app-empty-anchor',
+  template: '',
+})
+export class EmptyAnchorComponent {}
 
 @Component({
   selector: 'app-jumping-horse',
@@ -10,7 +17,13 @@ let herdSize = 0;
 })
 export class JumpingHorseComponent {
   brand: number;
-  constructor() {
+  constructor(vcr: ViewContainerRef, cfr: ComponentFactoryResolver, el: ElementRef) {
     this.brand = ++herdSize;
+
+    // NOTE: this is a factory for JumpingHorseWrapperComponents, it can be used to produce them dynamically and is how we can wrap the
+    // JumpingHorseComponent inside of it. (Anguar has this error if we dont have the empty anchor:
+    //
+    const factory: ComponentFactory<JumpingHorseWrapperComponent> = cfr.resolveComponentFactory(JumpingHorseWrapperComponent);
+    const containerRef = vcr.createComponent(factory, undefined, undefined, [[el.nativeElement]]);
   }
 }
