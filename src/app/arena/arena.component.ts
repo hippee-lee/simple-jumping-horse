@@ -1,4 +1,5 @@
 import { Component, HostListener, TemplateRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import {JumpingHorseComponent} from '../jumping-horse/jumping-horse.component';
 
 @Component({
   selector: 'app-arena',
@@ -20,7 +21,7 @@ export class ArenaComponent implements OnInit {
   constructor() { }
 
   jumpStart = true;
-  horse: TemplateRef<any>;
+  horse: TemplateRef<JumpingHorseComponent>;
 
   @ViewChild('start', {read: ViewContainerRef}) startContainer: ViewContainerRef;
   @ViewChild('end', {read: ViewContainerRef}) endContainer: ViewContainerRef;

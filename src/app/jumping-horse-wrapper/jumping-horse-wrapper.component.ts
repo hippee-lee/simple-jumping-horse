@@ -7,7 +7,6 @@ import {ArenaComponent} from '../arena/arena.component';
     <ng-template #portal>
         <ng-content></ng-content>
     </ng-template>
-    <ng-container [ngTemplateOutlet]="templateRef"></ng-container>
   `,
   styleUrls: ['./jumping-horse-wrapper.component.scss']
 })
@@ -20,5 +19,4 @@ export class JumpingHorseWrapperComponent implements OnInit {
   ngOnInit() {
     this.arena.horse = this.templateRef;
   }
-
 }
